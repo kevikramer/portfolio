@@ -3,183 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jane Doe - UX Designer Portfolio</title>
+    <title>Kevin Walter - UX Designer</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles for a clean, modern look */
         body {
             font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
         }
-
-        /* Smooth scroll for navigation links */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Style for the project card buttons on hover */
-        .project-card:hover .project-button {
-            transform: scale(1.05);
+        /* Custom styling for cards to ensure consistent appearance and spacing */
+        .card {
+            background-color: #fff;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
             transition: transform 0.2s ease-in-out;
         }
-
-        /* Ensure the form elements have a consistent look */
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            border: 1px solid #e2e8f0;
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            width: 100%;
-            transition: border-color 0.2s ease-in-out;
+        .card:hover {
+            transform: translateY(-5px);
         }
-
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        textarea:focus {
-            outline: none;
-            border-color: #3b82f6; /* Blue border on focus */
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        /* Custom image styling to fit the mockup */
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 200px; /* Ensure a consistent minimum height for project images */
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-100 text-gray-800">
 
-    <!-- Header & Navigation -->
-    <header class="bg-white sticky top-0 z-50 shadow-md">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-gray-900">Jane Doe</a>
-            <div class="hidden md:flex space-x-6">
-                <a href="#about" class="text-gray-600 hover:text-blue-600 transition-colors">About</a>
-                <a href="#projects" class="text-gray-600 hover:text-blue-600 transition-colors">Projects</a>
-                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
+            <a href="#" class="text-xl font-semibold">Kevin Walter</a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
+                <a href="#work" class="hover:text-blue-600 transition-colors">Work</a>
+                <a href="#reviews" class="hover:text-blue-600 transition-colors">Reviews</a>
+                <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
             </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+            <!-- Mobile Menu -->
+            <button id="mobile-menu-button" class="md:hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
         </nav>
-        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-            <a href="#about" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">About</a>
-            <a href="#projects" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Projects</a>
-            <a href="#contact" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Contact</a>
+            <a href="#about" class="block py-2 px-6 hover:bg-gray-100">About</a>
+            <a href="#work" class="block py-2 px-6 hover:bg-gray-100">Work</a>
+            <a href="#reviews" class="block py-2 px-6 hover:bg-gray-100">Reviews</a>
+            <a href="#contact" class="block py-2 px-6 hover:bg-gray-100">Contact</a>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section id="home" class="bg-blue-600 text-white flex items-center justify-center min-h-[60vh] py-16">
-            <div class="text-center px-6 md:px-12 max-w-4xl">
-                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
-                    Hi, I'm Jane, a UX Designer.
-                </h1>
-                <p class="text-lg md:text-xl font-light mb-8 opacity-90">
-                    I design intuitive and delightful experiences that solve real-world problems.
-                </p>
-                <a href="#projects" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition-colors duration-300">
-                    View My Work
-                </a>
-            </div>
-        </section>
-
-        <!-- About Section -->
+        <!-- Intro/Hero Section -->
         <section id="about" class="container mx-auto px-6 py-20 md:py-32">
-            <div class="flex flex-col md:flex-row items-center md:space-x-12">
-                <div class="w-full md:w-1/3 mb-8 md:mb-0">
-                    <!-- Placeholder image - replace with your own professional photo -->
-                    <img src="https://placehold.co/400x400/3b82f6/FFFFFF?text=Jane+Doe" alt="Jane Doe" class="rounded-full shadow-xl w-64 h-64 mx-auto md:mx-0 object-cover">
+            <p class="text-sm font-medium text-gray-500 mb-2">Product designer</p>
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                I cultivate <span class="text-blue-600">user-centered teams</span>, solve hard <span class="text-blue-600">design problems</span>, and create <span class="text-blue-600">impact</span>.
+            </h1>
+            <p class="text-gray-600 text-lg mb-8">
+                I also build wooden stuff, make music, and play with a tiny man. About me ›
+            </p>
+        </section>
+
+        <!-- Work Section -->
+        <section id="work" class="container mx-auto px-6 py-20 md:py-32">
+            <h2 class="text-3xl font-bold mb-12">Work -</h2>
+            <div class="space-y-12">
+                <!-- Project Card 1 -->
+                <div class="card md:flex">
+                    <img src="https://placehold.co/400x400/D1D5DB/1F2937?text=Mobile+App" alt="Project 1: Building GenAI visual tools for retail" class="project-image md:w-1/3">
+                    <div class="p-8 md:p-12 md:w-2/3">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <span class="inline-block bg-white p-1 rounded-full shadow">
+                                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google logo" class="h-4">
+                            </span>
+                            <h3 class="text-2xl font-semibold">Building GenAI visual tools for retail</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            I designed and shipped GenAI-based visual tools for retail merchants and internal customers to improve workflow efficiency and solve new problems.
+                        </p>
+                        <a href="#" class="inline-block text-blue-600 font-medium hover:underline">View case study →</a>
+                    </div>
                 </div>
-                <div class="w-full md:w-2/3 text-center md:text-left">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4">About Me</h2>
-                    <p class="text-gray-600 text-lg leading-relaxed">
-                        I am a passionate UX designer with over 5 years of experience creating user-centered digital products. My expertise lies in user research, wireframing, prototyping, and usability testing. I believe that good design is not just about aesthetics, but about creating seamless and meaningful interactions. When I'm not designing, you can find me hiking or exploring new coffee shops.
+                <!-- Project Card 2 -->
+                <div class="card md:flex">
+                    <img src="https://placehold.co/400x400/D1D5DB/1F2937?text=E-commerce" alt="Project 2: Launching an open-web way to buy" class="project-image md:w-1/3">
+                    <div class="p-8 md:p-12 md:w-2/3">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <span class="inline-block bg-white p-1 rounded-full shadow">
+                                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google logo" class="h-4">
+                            </span>
+                            <h3 class="text-2xl font-semibold">Launching an open-web way to buy</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            I led UX for the team that brought buy buttons to Search and other Google surfaces to simplify online purchases.
+                        </p>
+                        <a href="#" class="inline-block text-blue-600 font-medium hover:underline">View case study →</a>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="card md:flex">
+                    <img src="https://placehold.co/400x400/D1D5DB/1F2937?text=Shopping" alt="Project 3: Rethinking in-store shopping" class="project-image md:w-1/3">
+                    <div class="p-8 md:p-12 md:w-2/3">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <span class="inline-block bg-white p-1 rounded-full shadow">
+                                <img src="https://placehold.co/32x32/D1D5DB/1F2937?text=🛍️" alt="Shopping bag icon" class="h-4">
+                            </span>
+                            <h3 class="text-2xl font-semibold">Rethinking in-store shopping</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            This project explored new methods of improving the in-store shopping experience, from browsing to checking out.
+                        </p>
+                        <a href="#" class="inline-block text-blue-600 font-medium hover:underline">View case study →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="container mx-auto px-6 py-20 md:py-32">
+            <h2 class="text-3xl font-bold mb-12">Reviews</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Review Card 1 -->
+                <div class="card p-6">
+                    <p class="italic text-gray-600 mb-4">
+                        "A role model for skill and passion, bringing design to life and empowering his teammates more effectively."
                     </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="bg-gray-100 px-6 py-20 md:py-32">
-            <div class="container mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4">My Projects</h2>
-                    <p class="text-lg text-gray-600">A selection of my recent work showcasing my design process and skills.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <!-- Project Card 1 -->
-                    <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300 project-card">
-                        <img src="https://placehold.co/600x400/9ca3af/FFFFFF?text=Project+1" alt="Project 1" class="rounded-lg mb-6 w-full">
-                        <h3 class="text-2xl font-bold mb-2">Mobile Banking App</h3>
-                        <p class="text-gray-600 mb-6">
-                            Redesigned a mobile banking app to improve user experience and streamline transactions.
-                        </p>
-                        <a href="#" class="bg-blue-600 text-white font-bold py-3 px-6 rounded-full inline-block hover:bg-blue-700 transition-colors project-button">
-                            View Case Study
-                        </a>
+                    <div class="flex items-center space-x-4">
+                        <img src="https://placehold.co/60x60/D1D5DB/1F2937?text=P1" alt="Profile photo of first reviewer" class="rounded-full w-12 h-12">
+                        <div>
+                            <p class="font-semibold">FirstName LastName</p>
+                            <p class="text-sm text-gray-500">Design Manager</p>
+                            <p class="text-xs text-gray-400">Google</p>
+                        </div>
                     </div>
-                    <!-- Project Card 2 -->
-                    <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300 project-card">
-                        <img src="https://placehold.co/600x400/9ca3af/FFFFFF?text=Project+2" alt="Project 2" class="rounded-lg mb-6 w-full">
-                        <h3 class="text-2xl font-bold mb-2">E-commerce Website</h3>
-                        <p class="text-gray-600 mb-6">
-                            Developed a user journey map and redesigned the checkout flow for a new e-commerce site.
-                        </p>
-                        <a href="#" class="bg-blue-600 text-white font-bold py-3 px-6 rounded-full inline-block hover:bg-blue-700 transition-colors project-button">
-                            View Case Study
-                        </a>
+                </div>
+                <!-- Review Card 2 -->
+                <div class="card p-6">
+                    <p class="italic text-gray-600 mb-4">
+                        "A role model for skill and passion, bringing design to life and empowering his teammates more effectively."
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <img src="https://placehold.co/60x60/D1D5DB/1F2937?text=P2" alt="Profile photo of second reviewer" class="rounded-full w-12 h-12">
+                        <div>
+                            <p class="font-semibold">FirstName LastName</p>
+                            <p class="text-sm text-gray-500">Design Manager</p>
+                            <p class="text-xs text-gray-400">Google</p>
+                        </div>
                     </div>
-                    <!-- Project Card 3 -->
-                    <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300 project-card">
-                        <img src="https://placehold.co/600x400/9ca3af/FFFFFF?text=Project+3" alt="Project 3" class="rounded-lg mb-6 w-full">
-                        <h3 class="text-2xl font-bold mb-2">Health & Wellness App</h3>
-                        <p class="text-gray-600 mb-6">
-                            Designed a feature for a health app that helps users track their meditation habits.
-                        </p>
-                        <a href="#" class="bg-blue-600 text-white font-bold py-3 px-6 rounded-full inline-block hover:bg-blue-700 transition-colors project-button">
-                            View Case Study
-                        </a>
+                </div>
+                <!-- Review Card 3 -->
+                <div class="card p-6">
+                    <p class="italic text-gray-600 mb-4">
+                        "A role model for skill and passion, bringing design to life and empowering his teammates more effectively."
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <img src="https://placehold.co/60x60/D1D5DB/1F2937?text=P3" alt="Profile photo of third reviewer" class="rounded-full w-12 h-12">
+                        <div>
+                            <p class="font-semibold">FirstName LastName</p>
+                            <p class="text-sm text-gray-500">Design Manager</p>
+                            <p class="text-xs text-gray-400">Google</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="container mx-auto px-6 py-20 md:py-32">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h2>
-                <p class="text-lg text-gray-600">I'm always open to new opportunities and collaborations.</p>
-            </div>
-            <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg">
-                <form action="#" method="POST" class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                        <input type="text" id="name" name="name" class="rounded-md" placeholder="Your Name">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                        <input type="email" id="email" name="email" class="rounded-md" placeholder="your.email@example.com">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                        <textarea id="message" name="message" rows="4" class="rounded-md" placeholder="Your message..."></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition-colors duration-300 w-full md:w-auto">
-                            Send Message
-                        </button>
-                    </div>
-                </form>
+        <!-- Contact Section - Placeholder, as it was not in the mockup -->
+        <section id="contact" class="container mx-auto px-6 py-20 md:py-32 text-center">
+            <h2 class="text-3xl font-bold mb-4">Get in Touch</h2>
+            <p class="text-lg text-gray-600 max-w-xl mx-auto">
+                Feel free to connect with me to discuss new opportunities or just to say hello.
+            </p>
+            <div class="mt-8">
+                <a href="mailto:hello@example.com" class="text-blue-600 font-medium hover:underline">hello@example.com</a>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white text-center py-8">
-        <p class="text-sm">&copy; 2025 Jane Doe. All rights reserved.</p>
+    <footer class="bg-white text-gray-600 text-sm py-8 text-center">
+        <p>Kevin Walter</p>
+        <p class="mt-2">Copyright © 2024 Kevin Walter. All rights reserved.</p>
     </footer>
 
     <!-- JavaScript for mobile menu toggle -->
@@ -190,8 +199,8 @@
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-
-        // Hide mobile menu when a link is clicked
+        
+        // Close mobile menu on link click
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
