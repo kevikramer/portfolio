@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kevin Voller - Product Designer</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Archivo Black for headers -->
@@ -15,9 +20,13 @@
     <style>
         body {
             font-family: 'Archivo', sans-serif;
+            scroll-behavior: smooth; /* Enable smooth scrolling */
         }
         h1, h2, h3 {
             font-family: 'Archivo Black', sans-serif;
+        }
+        h1 {
+            font-size: 2rem;
         }
         /* Custom styling for cards to ensure consistent appearance and spacing */
         .card {
@@ -37,49 +46,130 @@
             object-fit: cover;
             min-height: 200px; /* Ensure a consistent minimum height for project images */
         }
+        
+        /* Mobile menu animations */
+        .mobile-menu {
+            transition: all 0.3s ease-in-out;
+            transform-origin: top;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+        
+        .mobile-menu.show {
+            max-height: 300px;
+            opacity: 1;
+        }
+        
+        .mobile-menu a {
+            transform: translateX(-20px);
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.show a {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        .mobile-menu.show a:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .mobile-menu.show a:nth-child(2) {
+            transition-delay: 0.15s;
+        }
+        
+        .mobile-menu.show a:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+        
+        /* Mobile menu button animation */
+        .mobile-menu-button {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu-button.active {
+            transform: rotate(90deg);
+        }
+
+        /* Smooth scrolling animations */
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #3B82F6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Section highlight on scroll */
+        .section-highlight {
+            transition: opacity 0.3s ease;
+        }
+
+        .section-highlight.fade-in {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
     <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+    <header class="bg-[#202124] shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-semibold">Kevin Voller</a>
+            <a href="#" class="text-xl font-semibold text-white">Kevin Voller</a>
             <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
-                <a href="#work" class="hover:text-blue-600 transition-colors">Work</a>
-                <a href="#reviews" class="hover:text-blue-600 transition-colors">Reviews</a>
+                <a href="#work" class="nav-link text-white hover:text-blue-400 transition-colors">Work</a>
+                <a href="#reviews" class="nav-link text-white hover:text-blue-400 transition-colors">Reviews</a>
+                <a href="#about-section" class="nav-link text-white hover:text-blue-400 transition-colors">About</a>
             </div>
             <!-- Mobile Menu -->
-            <button id="mobile-menu-button" class="md:hidden">
+            <button id="mobile-menu-button" class="md:hidden text-white mobile-menu-button">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-            <a href="#about" class="block py-2 px-6 hover:bg-gray-100">About</a>
-            <a href="#work" class="block py-2 px-6 hover:bg-gray-100">Work</a>
-            <a href="#reviews" class="block py-2 px-6 hover:bg-gray-100">Reviews</a>
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-[#202124] shadow-lg">
+            <a href="#about-section" class="nav-link block py-2 px-6 text-white hover:bg-gray-800">About</a>
+            <a href="#work" class="nav-link block py-2 px-6 text-white hover:bg-gray-800">Work</a>
+            <a href="#reviews" class="nav-link block py-2 px-6 text-white hover:bg-gray-800">Reviews</a>
         </div>
     </header>
 
     <main>
         <!-- Intro/Hero Section -->
-        <section id="about" class="container mx-auto px-6 py-20 md:py-32">
-            <p class="text-sm font-medium text-gray-500 mb-2">Product designer</p>
-            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
-                I cultivate <span class="text-blue-600">user-centered teams</span>, solve hard <span class="text-blue-600">design problems</span>, and create <span class="text-blue-600">impact</span>.
-            </h1>
-            <p class="text-gray-600 text-lg mb-8">
-                I also build wooden stuff, make music, and play with a tiny man. About me ›
-            </p>
+        <section id="about" class="section-highlight bg-[#F5F6F9] border-b border-[#202124]">
+            <div class="container mx-auto px-6 py-16 md:py-24">
+                <p class="text-sm font-medium text-gray-500 mb-2">Product designer</p>
+                <h1 class="text-4xl md:text-7xl font-bold leading-tight mb-6 tracking-wide">
+                    I cultivate <span class="text-blue-600">user-centered</span> teams,<br>
+                    solve hard <span class="text-blue-600">design problems</span>,<br>
+                    and create <span class="text-blue-600">impact</span>.
+                </h1>
+                <p class="text-gray-600 text-lg mb-8">
+                    I also build wooden stuff, play music, and make rocket ships out of pillows with my 3 year old. <a href="#about-section" class="text-blue-600 hover:underline transition-colors">More about me ›</a>
+                </p>
+            </div>
         </section>
 
         <!-- Work Section -->
-        <section id="work" class="container mx-auto px-6 py-20 md:py-32">
-            <h2 class="text-3xl font-bold mb-12">Work -</h2>
-            <div class="space-y-12">
+        <section id="work" class="section-highlight container mx-auto px-6 py-20 md:py-32 min-h-screen flex items-center">
+            <div class="w-full">
+                <h2 class="text-3xl font-bold mb-12">Work -</h2>
+                <div class="space-y-12">
                 <!-- Project Card 1 -->
                 <div class="card md:flex">
                     <img src="https://placehold.co/400x400/D1D5DB/1F2937?text=Mobile+App" alt="Project 1: Building GenAI visual tools for retail" class="project-image md:w-1/3">
@@ -123,4 +213,223 @@
                             <h3 class="text-2xl font-semibold">Rethinking in-store shopping</h3>
                         </div>
                         <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            This project explored new methods of improving the in-store shopping experience, from brows
+                            This project explored new methods of improving the in-store shopping experience, from browsing to checkout.
+                        </p>
+                        <a href="#" class="inline-block text-blue-600 font-medium hover:underline">View case study →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="section-highlight container mx-auto px-6 py-20 md:py-32">
+            <h2 class="text-3xl font-bold mb-12">What people say -</h2>
+            <div class="space-y-8">
+                <blockquote class="text-lg text-gray-600 italic">
+                    "Kevin's design thinking and user-centered approach consistently delivered exceptional results."
+                </blockquote>
+                <cite class="text-sm text-gray-500">— Previous Colleague</cite>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about-section" class="section-highlight container mx-auto px-6 py-20 md:py-32">
+            <h2 class="text-3xl font-bold mb-12">About -</h2>
+            <div class="max-w-4xl">
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <div class="mb-6">
+                            <img src="kevin_headshot.jpg" alt="Kevin Voller - Product Designer" class="w-32 h-32 rounded-full border-2 border-gray-300 object-cover">
+                        </div>
+                        <table class="text-gray-600">
+                            <tr>
+                                <td class="pr-4 py-1 font-light">Location</td>
+                                <td class="py-1">Pittsburgh, USA</td>
+                            </tr>
+                            <tr>
+                                <td class="pr-4 py-1 font-light">Day job</td>
+                                <td class="py-1">Senior Product Designer @ Google</td>
+                            </tr>
+                            <tr>
+                                <td class="pr-4 py-1 font-light">Night job</td>
+                                <td class="py-1">Dad to an energetic 3 year old</td>
+                            </tr>
+                            <tr>
+                                <td class="pr-4 py-1 font-light">Newest hobby</td>
+                                <td class="py-1">Performing with The Jentz Band</td>
+                            </tr>
+                            <tr>
+                                <td class="pr-4 py-1 font-light">Recent read</td>
+                                <td class="py-1">The Course of Love by Alan de Botton</td>
+                            </tr>
+                            <tr>
+                                <td class="pr-4 py-1 font-light">Beverage of choice</td>
+                                <td class="py-1">Decaf cappuccino</td>
+                            </tr>
+                        </table>
+                        
+                        <div class="mt-8">
+                            <div class="flex space-x-4">
+                                <a href="kevin_voller_resume.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Resume</a>
+                                <a href="https://www.linkedin.com/in/kevinrvoller/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">LinkedIn</a>
+                                <a href="https://www.instagram.com/vollerkevin/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Instagram</a>
+                                <a href="https://soundcloud.com/steel-sunshine" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Music</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            I'm a product designer with experience in all phases of the product design lifecycle, from eliciting business and customer goals, to exploratory research, championing a product vision, and bringing that product to life through thoughtful design. I'm also an experienced facilitator, teaching and leading teams through the user-centered design process.
+                        </p>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            I've had user-centered research and design roles at Google, Dick's Sporting Goods, GlaxoSmithKline, and Penn State's College of Information & Technology. My work has touched billions of users.
+                        </p>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            When I'm not designing, you'll find me woodworking, recording or performing music, or spending time with my family.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">Site crafted by Kevin, with help from Gemini and Cursor.</p>
+            <p class="text-gray-400">&copy; 2025 Kevin Voller. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for mobile menu functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            let isMenuOpen = false;
+            
+            // Smooth scrolling function with easing
+            function smoothScrollTo(targetId, duration = 1000) {
+                const target = document.querySelector(targetId);
+                if (!target) return;
+                
+                const targetPosition = target.offsetTop - 80; // Offset for sticky header
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                let startTime = null;
+                
+                function animation(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
+                    window.scrollTo(0, run);
+                    if (timeElapsed < duration) requestAnimationFrame(animation);
+                }
+                
+                // Easing function for smooth animation
+                function easeInOutCubic(t, b, c, d) {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t * t + b;
+                    t -= 2;
+                    return c / 2 * (t * t * t + 2) + b;
+                }
+                
+                requestAnimationFrame(animation);
+            }
+            
+            // Handle all anchor link clicks
+            function handleAnchorClick(e) {
+                const href = e.target.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    smoothScrollTo(href);
+                }
+            }
+            
+            // Add click handlers to all navigation links
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', handleAnchorClick);
+            });
+            
+            // Section highlighting on scroll
+            function highlightSections() {
+                const sections = document.querySelectorAll('.section-highlight');
+                const scrollPosition = window.pageYOffset + window.innerHeight / 2;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight) {
+                        section.classList.add('fade-in');
+                    } else {
+                        section.classList.remove('fade-in');
+                    }
+                });
+            }
+            
+            if (mobileMenuButton && mobileMenu) {
+                // Toggle menu function
+                function toggleMenu() {
+                    isMenuOpen = !isMenuOpen;
+                    
+                    if (isMenuOpen) {
+                        mobileMenu.classList.add('show');
+                        mobileMenuButton.classList.add('active');
+                    } else {
+                        mobileMenu.classList.remove('show');
+                        mobileMenuButton.classList.remove('active');
+                    }
+                }
+                
+                // Close menu function
+                function closeMenu() {
+                    if (isMenuOpen) {
+                        isMenuOpen = false;
+                        mobileMenu.classList.remove('show');
+                        mobileMenuButton.classList.remove('active');
+                    }
+                }
+                
+                // Button click handler
+                mobileMenuButton.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    toggleMenu();
+                });
+                
+                // Close mobile menu when clicking on a link
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        closeMenu();
+                    });
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+                        closeMenu();
+                    }
+                });
+                
+                // Close menu on escape key
+                document.addEventListener('keydown', function(event) {
+                    if (event.key === 'Escape') {
+                        closeMenu();
+                    }
+                });
+            }
+            
+            // Event listeners for scroll effects
+            window.addEventListener('scroll', function() {
+                highlightSections();
+            });
+            
+            // Initialize scroll effects
+            highlightSections();
+        });
+    </script>
+
+</body>
+</html>
